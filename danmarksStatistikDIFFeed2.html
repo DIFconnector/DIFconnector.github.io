@@ -66,7 +66,7 @@
         // Fra DST sendes data på formen CSV, som 
 
         $.ajax({
-            url: "https://api.statbank.dk/v1/data/IDRFIN01/CSV?delimiter=Semicolon&FUNKTION=03231&Tid=*&OMR%C3%85DE=*&DRANST=*",
+            url: "https://api.statbank.dk/v1/data/IDRFIN01/CSV?OMR%C3%85DE=*&FUNKTION=03231&DRANST=*&Tid=*",
             success: function(csv){
               var lines = csv.split("\n");
               var result = [];
