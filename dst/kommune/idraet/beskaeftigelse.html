@@ -27,16 +27,20 @@
     // Definition af tabel og kolonner i dataudtræk (PÅKRÆVET)
     dataConnector.getSchema = function(schemaCallback) {
         var cols = [{
-            id: "OMRAADE",
-            alias: "Kommune", 
+            id: "BRANCHE",
+            alias: "Branche", 
             dataType: tableau.dataTypeEnum.string
         },{
-            id: "FUNKTION",                             // Navn på kollonne i tabel fra danmarks statistik
-            alias: "Funktion",                          // Den label vi vil have på kolonnen i tableau
+            id: "KOEN",                             // Navn på kollonne i tabel fra danmarks statistik
+            alias: "Køn",                          // Den label vi vil have på kolonnen i tableau
             dataType: tableau.dataTypeEnum.string       // Datatype https://tableau.github.io/webdataconnector/docs/api_ref.html#webdataconnectorapi.datatypeenum
         },{
-            id: "DRANST",
+            id: "NOEGLE",
             alias: "Dranst", 
+            dataType: tableau.dataTypeEnum.string
+        },{
+            id: "ALDER",
+            alias: "Alder", 
             dataType: tableau.dataTypeEnum.string
         },{
             id: "TID",
@@ -44,13 +48,13 @@
             dataType: tableau.dataTypeEnum.string
         },{
             id: "INDHOLD",
-            alias: "Udgifter (1000 kr.)", 
+            alias: "Idrætsbeskæftigelse", 
             dataType: tableau.dataTypeEnum.int
         }];
 
         var tableSchema = {
             id: "danmarksStatistikDIFFeed",                                                                 // Unikt id til tabellen 
-            alias: "Kommunale udgifter (1000 kr.) til stadions og idrætsanlæg efter område, dranst og tid", // Titel på tabellen 
+            alias: "Idrætsbeskæftigelse efter branche, køn, alder og nøgletal", // Titel på tabellen 
             columns: cols
         };
 
@@ -60,13 +64,12 @@
     // Download the data (PÅKRÆVET)
     dataConnector.getData = function(table, doneCallback) {
         // Fra DST sendes data på formen CSV, som 
-
         $.ajax({
-            url: "https://api.statbank.dk/v1/data/IDRFIN01/CSV?OMR%C3%85DE=*&FUNKTION=03231&DRANST=*&Tid=*",
+            url: "https://api.statbank.dk/v1/data/IDRBES01/CSV?BRANCHE07=931100%2C931200%2C931300%2C931900&K%C3%98N=M%2CK&ALDER=250%2C2649%2C50OV&BN%C3%98GLE=*&Tid=*",
             success: function(csv){
               var lines = csv.split("\n");
               var result = [];
-              var headers = ["OMRAADE", "FUNKTION", "DRANST", "TID", "INDHOLD"];
+              var headers = ["BRANCHE", "KOEN", "NOEGLE", "ALDER", "TID", "INDHOLD"];
 
               for(var i=1;i<lines.length;i++){
 
@@ -97,7 +100,7 @@
     // En listener, der sørger for at hente data når brugeren klikker på knappen
     $(document).ready(function() {
         $("#submitButton").click(function() {
-            tableau.connectionName = "Danmarks statistik - Kommunale udgifter (1000 kr.) til stadions og idrætsanlæg efter område, dranst og tid"; // This will be the data source name in Tableau
+            tableau.connectionName = "Danmarks statistik - Idrætsbeskæftigelse efter branche, køn, alder og nøgletal"; // This will be the data source name in Tableau
             tableau.submit(); // This sends the connector object to Tableau
         });        
     });
