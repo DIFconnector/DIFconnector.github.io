@@ -66,7 +66,6 @@
             success: function(csv){
               var lines = csv.split("\n");
               var result = [];
-              //var headers = lines[0].split(";");
               var headers = ["OMRAADE", "FUNKTION", "DRANST", "TID", "INDHOLD"];
 
               for(var i=1;i<lines.length;i++){
