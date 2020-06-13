@@ -54,7 +54,7 @@
 
         var tableSchema = {
             id: "danmarksStatistikDIFFeed",                                                                 // Unikt id til tabellen 
-            alias: "Idrætsbeskæftigelse efter branche, køn, alder og nøgletal", // Titel på tabellen 
+            alias: "Idrætsbeskæftigelse efter branche (DB07), køn, alder og nøgletal (Danmarks Statistik - IDRBES01)", // Titel på tabellen 
             columns: cols
         };
 
@@ -100,7 +100,7 @@
     // En listener, der sørger for at hente data når brugeren klikker på knappen
     $(document).ready(function() {
         $("#submitButton").click(function() {
-            tableau.connectionName = "Danmarks statistik - Idrætsbeskæftigelse efter branche, køn, alder og nøgletal"; // This will be the data source name in Tableau
+            tableau.connectionName = "Idrætsbeskæftigelse efter branche (DB07), køn, alder og nøgletal (Danmarks Statistik - IDRBES01)"; // This will be the data source name in Tableau
             tableau.submit(); // This sends the connector object to Tableau
         });        
     });
