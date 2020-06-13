@@ -50,7 +50,7 @@
 
         var tableSchema = {
             id: "danmarksStatistikDIFFeed",                                                                 // Unikt id til tabellen 
-            alias: "Kommunale udgifter (1000 kr.) til stadions og idrætsanlæg efter område, dranst og tid", // Titel på tabellen 
+            alias: "Kommunale udgifter (1000 kr.) til idræt efter område, funktion og dranst (Danmarks Statistik - IDRFIN01)", // Titel på tabellen 
             columns: cols
         };
 
@@ -96,7 +96,7 @@
     // En listener, der sørger for at hente data når brugeren klikker på knappen
     $(document).ready(function() {
         $("#submitButton").click(function() {
-            tableau.connectionName = "Danmarks statistik - Kommunale udgifter (1000 kr.) til stadions og idrætsanlæg efter område, dranst og tid"; // This will be the data source name in Tableau
+            tableau.connectionName = "Kommunale udgifter (1000 kr.) til idræt efter område, funktion og dranst (Danmarks Statistik - IDRFIN01)"; // This will be the data source name in Tableau
             tableau.submit(); // This sends the connector object to Tableau
         });        
     });
