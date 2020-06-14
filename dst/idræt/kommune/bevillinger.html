@@ -54,7 +54,7 @@
 
         var tableSchema = {
             id: "danmarksStatistikDIFFeed",                                                                 // Unikt id til tabellen 
-            alias: "Offentlige kulturbevillinger efter kulturemne, formål, finansieringskilde og finansieringsart (Danmarks Statistik - BEVIL01)", // Titel på tabellen 
+            alias: "Offentlige kulturbevillinger efter kulturemne (idræt og fritid), formål, finansieringskilde og finansieringsart (Danmarks Statistik - BEVIL01)", // Titel på tabellen 
             columns: cols
         };
 
@@ -100,7 +100,7 @@
     // En listener, der sørger for at hente data når brugeren klikker på knappen
     $(document).ready(function() {
         $("#submitButton").click(function() {
-            tableau.connectionName = "Offentlige kulturbevillinger efter kulturemne, formål, finansieringskilde og finansieringsart (Danmarks Statistik - BEVIL01)"; // This will be the data source name in Tableau
+            tableau.connectionName = "Offentlige kulturbevillinger efter kulturemne (idræt og fritid), formål, finansieringskilde og finansieringsart (Danmarks Statistik - BEVIL01)"; // This will be the data source name in Tableau
             tableau.submit(); // This sends the connector object to Tableau
         });        
     });
