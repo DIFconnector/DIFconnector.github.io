@@ -45,7 +45,7 @@
         },{
             id: "INDHOLD",
             alias: "Befolkningstal", 
-            dataType: tableau.dataTypeEnum.int
+            dataType: tableau.dataTypeEnum.string
         }];
 
         var tableSchema = {
