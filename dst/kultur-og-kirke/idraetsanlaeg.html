@@ -27,30 +27,30 @@
     // Definition af tabel og kolonner i dataudtræk (PÅKRÆVET)
     dataConnector.getSchema = function(schemaCallback) {
         var cols = [{
-            id: "OMRAADE",
+            id: "KOMK",
             alias: "Kommune", 
             dataType: tableau.dataTypeEnum.string
         },{
-            id: "FUNKTION",                             // Navn på kolonne i tabel fra danmarks statistik
-            alias: "Funktion",                          // Den label vi vil have på kolonnen i tableau
+            id: "BYST",                             // Navn på kolonne i tabel fra danmarks statistik
+            alias: "Bystørrelse",                          // Den label vi vil have på kolonnen i tableau
             dataType: tableau.dataTypeEnum.string       // Datatype https://tableau.github.io/webdataconnector/docs/api_ref.html#webdataconnectorapi.datatypeenum
         },{
-            id: "DRANST",
-            alias: "Dranst", 
+            id: "ALDER",
+            alias: "Alder", 
             dataType: tableau.dataTypeEnum.string
         },{
-            id: "TID",
+            id: "Tid",
             alias: "År", 
             dataType: tableau.dataTypeEnum.string
         },{
             id: "INDHOLD",
-            alias: "Udgifter (1000 kr.)", 
+            alias: "Befolkningstal", 
             dataType: tableau.dataTypeEnum.int
         }];
 
         var tableSchema = {
             id: "danmarksStatistikDIFFeed",                                                                 // Unikt id til tabellen 
-            alias: "Kommunale udgifter (1000 kr.) til idræt efter område, funktion og dranst (Danmarks Statistik - IDRFIN01)", // Titel på tabellen 
+            alias: "Folketal efter kommune, bystørrelse og alder (Danmarks Statistik - BY2)", // Titel på tabellen 
             columns: cols
         };
 
@@ -61,11 +61,11 @@
     dataConnector.getData = function(table, doneCallback) {
         // Fra DST sendes data på formen CSV, som 
         $.ajax({
-            url: "https://api.statbank.dk/v1/data/IDRFIN01/CSV?OMR%C3%85DE=101%2C147%2C155%2C185%2C165%2C151%2C153%2C157%2C159%2C161%2C163%2C167%2C169%2C183%2C173%2C175%2C187%2C201%2C240%2C210%2C250%2C190%2C270%2C260%2C217%2C219%2C223%2C230%2C400%2C253%2C259%2C350%2C265%2C269%2C320%2C376%2C316%2C326%2C360%2C370%2C306%2C329%2C330%2C340%2C336%2C390%2C420%2C430%2C440%2C482%2C410%2C480%2C450%2C461%2C479%2C492%2C530%2C561%2C563%2C607%2C510%2C621%2C540%2C550%2C573%2C575%2C630%2C580%2C710%2C766%2C615%2C707%2C727%2C730%2C741%2C740%2C746%2C706%2C751%2C657%2C661%2C756%2C665%2C760%2C779%2C671%2C791%2C810%2C813%2C860%2C849%2C825%2C846%2C773%2C840%2C787%2C820%2C851&FUNKTION=03231%2C03235%2C32218&DRANST=12%2C3&Tid=*",
+            url: "https://api.statbank.dk/v1/data/BY2/CSV?KOMK=*&BYST=*&ALDER=18%2C19%2C20%2C21%2C22%2C23%2C24%2C25%2C26%2C27%2C28%2C29%2C30%2C31%2C32%2C33%2C34%2C35%2C36%2C37%2C38%2C39%2C40%2C41%2C42%2C43%2C44%2C45%2C46%2C47%2C48%2C49%2C50%2C51%2C52%2C53%2C54%2C55%2C56%2C57%2C58%2C59%2C60%2C61%2C62%2C63%2C64%2C65%2C66%2C67%2C68%2C69%2C70%2C71%2C72%2C73%2C74%2C75&Tid=2020",
             success: function(csv){
               var lines = csv.split("\n");
               var result = [];
-              var headers = ["OMRAADE", "FUNKTION", "DRANST", "TID", "INDHOLD"];
+              var headers = ["KOMK", "BYST", "ALDER", "Tid", "Indhold"];
 
               for(var i=1;i<lines.length;i++){
 
@@ -96,7 +96,7 @@
     // En listener, der sørger for at hente data når brugeren klikker på knappen
     $(document).ready(function() {
         $("#submitButton").click(function() {
-            tableau.connectionName = "Kommunale udgifter (1000 kr.) til idræt efter område, funktion og dranst (Danmarks Statistik - IDRFIN01)"; // This will be the data source name in Tableau
+            tableau.connectionName = "Folketal efter kommune, bystørrelse og alder (Danmarks Statistik - BY2)"; // This will be the data source name in Tableau
             tableau.submit(); // This sends the connector object to Tableau
         });        
     });
