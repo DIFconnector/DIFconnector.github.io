@@ -39,7 +39,7 @@
             alias: "Alder", 
             dataType: tableau.dataTypeEnum.string
         },{
-            id: "Tid",
+            id: "TID",
             alias: "År", 
             dataType: tableau.dataTypeEnum.string
         },{
@@ -65,7 +65,7 @@
             success: function(csv){
               var lines = csv.split("\n");
               var result = [];
-              var headers = ["KOMK", "BYST", "ALDER", "Tid", "INDHOLD"];
+              var headers = ["KOMK", "BYST", "ALDER", "TID", "INDHOLD"];
 
               for(var i=1;i<lines.length;i++){
 
