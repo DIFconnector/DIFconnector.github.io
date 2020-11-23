@@ -127,7 +127,7 @@ Latest commit 1944cc4 on 28 Jul
     // En listener, der sørger for at hente data når brugeren klikker på knappen
     $(document).ready(function() {
         $("#submitButton").click(function() {
-            tableau.connectionName = "Offentlige kulturbevillinger efter kulturemne (idræt og fritid), formål, finansieringskilde og finansieringsart (Danmarks Statistik - BEVIL01)"; // This will be the data source name in Tableau
+            tableau.connectionName = "Folketal efter kommune, bystørrelse og alder (Danmarks Statistik - BY2)"; // This will be the data source name in Tableau
             tableau.submit(); // This sends the connector object to Tableau
         });        
     });
