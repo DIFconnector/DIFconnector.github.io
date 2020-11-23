@@ -42,6 +42,10 @@
             id: "Tid",
             alias: "År", 
             dataType: tableau.dataTypeEnum.string
+        },{
+            id: "INDHOLD",
+            alias: "Befolkningstal", 
+            dataType: tableau.dataTypeEnum.int
         }];
 
         var tableSchema = {
