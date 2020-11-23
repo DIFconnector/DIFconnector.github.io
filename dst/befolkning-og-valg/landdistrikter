@@ -31,7 +31,7 @@
             alias: "Kommune", 
             dataType: tableau.dataTypeEnum.string
         },{
-            id: "BYST",                             // Navn på kolonne i tabel fra danmarks statistik
+            id: "BYST",                             // Navn på kollonne i tabel fra danmarks statistik
             alias: "Bystørrelse",                          // Den label vi vil have på kolonnen i tableau
             dataType: tableau.dataTypeEnum.string       // Datatype https://tableau.github.io/webdataconnector/docs/api_ref.html#webdataconnectorapi.datatypeenum
         },{
@@ -50,7 +50,7 @@
 
         var tableSchema = {
             id: "danmarksStatistikDIFFeed",                                                                 // Unikt id til tabellen 
-            alias: "Folketal efter kommune, bystørrelse og alder (Danmarks Statistik - BY2)", // Titel på tabellen 
+            alias: "Folketal 1. januar efter kommune, bystørrelse og alder (Danmarks Statistik - BY2)", // Titel på tabellen 
             columns: cols
         };
 
@@ -96,7 +96,7 @@
     // En listener, der sørger for at hente data når brugeren klikker på knappen
     $(document).ready(function() {
         $("#submitButton").click(function() {
-            tableau.connectionName = "Folketal efter kommune, bystørrelse og alder (Danmarks Statistik - BY2)"; // This will be the data source name in Tableau
+            tableau.connectionName = "Folketal 1. januar efter kommune, bystørrelse og alder (Danmarks Statistik - BY2)"; // This will be the data source name in Tableau
             tableau.submit(); // This sends the connector object to Tableau
         });        
     });
