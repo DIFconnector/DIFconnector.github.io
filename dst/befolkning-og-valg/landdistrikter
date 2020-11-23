@@ -41,7 +41,7 @@
         },{
             id: "TID",
             alias: "År", 
-            dataType: tableau.dataTypeEnum.string
+            dataType: tableau.dataTypeEnum.int
         },{
             id: "INDHOLD",
             alias: "Befolkningstal", 
