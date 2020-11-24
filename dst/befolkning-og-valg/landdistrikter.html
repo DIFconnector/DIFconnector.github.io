@@ -27,7 +27,7 @@
     // Definition af tabel og kolonner i dataudtræk (PÅKRÆVET)
     dataConnector.getSchema = function(schemaCallback) {
         var cols = [{
-            id: "KOEN",
+            id: "KØN",
             alias: "Køn", 
             dataType: tableau.dataTypeEnum.string
         },{
@@ -57,7 +57,7 @@
             success: function(csv){
               var lines = csv.split("\n");
               var result = [];
-              var headers = ["KOEN", "TID", "INDHOLD"];
+              var headers = ["KØN", "TID", "INDHOLD"];
 
               for(var i=1;i<lines.length;i++){
 
