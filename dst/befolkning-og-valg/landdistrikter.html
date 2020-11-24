@@ -61,7 +61,7 @@
     dataConnector.getData = function(table, doneCallback) {
         // Fra DST sendes data på formen CSV, som 
         $.ajax({
-            url: "https://api.statbank.dk/v1/data/BY2/CSV?KOMK=101%2C147%2C151%2C153%2C155%2C157%2C159%2C161%2C163%2C165%2C167%2C169%2C173%2C175%2C183%2C185%2C187%2C190&BYST=*&KOEN=*",
+            url: "https://api.statbank.dk/v1/data/BY2/CSV?KOMK=101%2C147%2C151%2C153%2C155%2C157%2C159%2C161%2C163%2C165%2C167%2C169%2C173%2C175%2C183%2C185%2C187%2C190&BYST=*&K%C3%98N=*",
             success: function(csv){
               var lines = csv.split("\n");
               var result = [];
