@@ -39,10 +39,6 @@
             alias: "Alder", 
             dataType: tableau.dataTypeEnum.string
         },{
-            id: "KON",
-            alias: "Køn", 
-            dataType: tableau.dataTypeEnum.string
-        },{
             id: "TID",
             alias: "År", 
             dataType: tableau.dataTypeEnum.string
@@ -65,11 +61,11 @@
     dataConnector.getData = function(table, doneCallback) {
         // Fra DST sendes data på formen CSV, som 
         $.ajax({
-            url: "https://api.statbank.dk/v1/data/BY2/CSV?KOMK=101&BYST=HOVEDS&ALDER=18%2C19%2C20%2C21%2C22&K%C3%98N=2&Tid=2020",
+            url: "https://api.statbank.dk/v1/data/BY2/CSV?KOMK=101&BYST=HOVEDS&ALDER=18%2C19%2C20%2C21%2C22&Tid=2020",
             success: function(csv){
               var lines = csv.split("\n");
               var result = [];
-              var headers = ["KOMK", "BYST", "ALDER", "KON", "TID", "INDHOLD"];
+              var headers = ["KOMK", "BYST", "ALDER",  "TID", "INDHOLD"];
 
               for(var i=1;i<lines.length;i++){
 
