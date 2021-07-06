@@ -28,7 +28,7 @@
     dataConnector.getSchema = function(schemaCallback) {
         var cols = [{
             id: "OMRAADE",
-            alias: "Område", 
+            alias: "Kommune", 
             dataType: tableau.dataTypeEnum.string
         },{
             id: "FUNKTION",                             // Navn på kolonne i tabel fra danmarks statistik
@@ -48,7 +48,7 @@
             dataType: tableau.dataTypeEnum.string
         },{
             id: "TID",
-            alias: "Tid", 
+            alias: "År", 
             dataType: tableau.dataTypeEnum.string       // number.format('0,0')              
         }];
 
