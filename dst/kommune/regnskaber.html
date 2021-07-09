@@ -49,7 +49,11 @@
         },{
             id: "TID",
             alias: "År", 
-            dataType: tableau.dataTypeEnum.string       // number.format('0,0')              
+            dataType: tableau.dataTypeEnum.string       // number.format('0,0')      
+        },{
+            id: "INDHOLD",
+            alias: "Udgifter (kr.)", 
+            dataType: tableau.dataTypeEnum.int          
         }];
 
         var tableSchema = {
@@ -69,7 +73,7 @@
             success: function(csv){
               var lines = csv.split("\n");
               var result = [];
-              var headers = ["OMRAADE", "FUNKTION", "DRANST", "ART", "PRISENHED", "TID"];
+              var headers = ["OMRAADE", "FUNKTION", "DRANST", "ART", "PRISENHED", "TID", "INDHOLD"];
 
               for(var i=1;i<lines.length;i++){
 
