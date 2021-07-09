@@ -65,7 +65,7 @@
     dataConnector.getData = function(table, doneCallback) {
         // Fra DST sendes data på formen CSV, som 
         $.ajax({
-            url: "https://api.statbank.dk/v1/data/REGK31/BULK?OMR%C3%85DE=000&FUNKTION=03231&DRANST=*&ART=*&PRISENHED=*&Tid=2017",
+            url: "https://api.statbank.dk/v1/data/REGK31/BULK?OMR%C3%85DE=000&FUNKTION=03231&DRANST=1%2C3&ART=TOT&PRISENHED=INDL&Tid=2017%2C2018%2C2019%2C2020",
             success: function(csv){
               var lines = csv.split("\n");
               var result = [];
